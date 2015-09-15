@@ -691,15 +691,15 @@ internal extension Array {
         - parameter call: The closure to use to determine uniqueness
         - returns: The set of elements for which call(element) is unique
     */
-    func uniqueBy <Element: Equatable> (call: (Element) -> (Element)) -> [Element] {
+    func uniqueBy <T: Equatable> (call: (Element) -> (T)) -> [Element] {
         var result: [Element] = []
-        var uniqueItems: [Element] = []
+        var uniqueItems: [T] = []
         
         for item in self {
-            let callResult: Element = call(item as! Element)
+            let callResult: T = call(item)
             if !uniqueItems.contains(callResult) {
                 uniqueItems.append(callResult)
-                result.append(item as! Element)
+                result.append(item)
             }
         }
         

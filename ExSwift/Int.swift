@@ -80,7 +80,7 @@ public extension Int {
             return
         }
 
-        Array(Array(limit...self).reverse()).each(function)
+        Array(limit...self).reverse().each(function)
     }
 
     /**

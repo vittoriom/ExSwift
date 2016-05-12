@@ -36,9 +36,11 @@ public class ExSwift {
             //  Workaround for the now illegal (T...) type.
             let adaptedFunction = unsafeBitCast(function, Function.self)
         
-            if times-- <= 0 {
+            if times <= 0 {
                 return adaptedFunction(params)
             }
+          
+            times -= 1
             
             return nil
         }
